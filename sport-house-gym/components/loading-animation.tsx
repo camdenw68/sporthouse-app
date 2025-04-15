@@ -23,15 +23,12 @@ export default function LoadingAnimation() {
         setIsLoading(false)
       }, 3000)
 
-      // Safety timeout - force hide after 5 seconds no matter what
-      const safetyTimer = setTimeout(() => {
-        setIsLoading(false)
-      }, 5000)
-
       return () => {
         clearTimeout(timer)
-        clearTimeout(safetyTimer)
       }
+    } else {
+      // Not first visit - don't show animation
+      setIsLoading(false)
     }
   }, [])
 
@@ -263,14 +260,6 @@ export default function LoadingAnimation() {
           ease: "easeInOut",
         }}
       />
-
-      {/* Emergency exit button */}
-      <button
-        onClick={() => setIsLoading(false)}
-        className="absolute bottom-4 right-4 bg-white text-black px-4 py-2 rounded-md z-50"
-      >
-        Skip Animation
-      </button>
     </div>
   )
 }

@@ -21,6 +21,7 @@ export default function Header() {
     { name: "News", href: "/news" },
     { name: "About", href: "/about" },
     { name: "Contact", href: "/contact" },
+    { name: "Check-In", href: "/check-in" },
   ]
 
   return (
